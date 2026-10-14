@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('adresse', function (Blueprint $table) {
+            $table->id();
+            $table->string('adresse');
+            $table->string('ville');
+            $table->string('code_postal');
+            $table->index('fk_user');
+            $table->foreign('fk_user')->references('id')->on('users')->onDelete('cascade'); // Permet de créer une clé étrangère
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('adresse');
+    }
+};

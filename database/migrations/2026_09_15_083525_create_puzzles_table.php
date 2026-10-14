@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('puzzles', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('categorie');
+            $table->index('fk_categorie');
+            $table->foreign('fk_categorie')->references('id')->on('categorie')->onDelete('cascade'); // Permet de créer une clé étrangère
             $table->string('description');
             $table->string('image');
             $table->float('prix');
+            $table->index('fk_fabricant');
+            $table->foreign('fk_fabricant')->references('id')->on('fabricant')->onDelete('cascade');
             $table->timestamps();
         });
     }
