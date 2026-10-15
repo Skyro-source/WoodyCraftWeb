@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('panier', function (Blueprint $table) {
             $table->id();
-            $table->index('fk_user');
+            $table->unsignedBigInteger('fk_user');
             $table->foreign('fk_user')->references('id')->on('users')->onDelete('cascade'); // Permet de créer une clé étrangère
             $table->timestamps();
         });

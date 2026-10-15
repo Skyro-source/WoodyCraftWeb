@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('ville');
             $table->string('code_postal');
-            $table->index('fk_user');
+            $table->unsignedBigInteger('fk_user');
             $table->foreign('fk_user')->references('id')->on('users')->onDelete('cascade'); // Permet de créer une clé étrangère
             $table->timestamps();
         });
