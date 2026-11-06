@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Puzzle extends Model
 {
     use HasFactory;
-    protected $fillable = ['nom', 'categorie', 'description', 'prix', 'image'];
+    protected $fillable = ['nom', 'fk_categorie', 'description', 'image', 'prix', 'fk_fabricant'];
 }

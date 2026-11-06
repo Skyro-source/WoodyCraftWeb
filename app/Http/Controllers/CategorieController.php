@@ -11,14 +11,15 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        
+        $categorie = Categorie::all();
+        return view('puzzles.accueil', compact('puzzles'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Categorie $categorie)
     {
-        //
+        return view('puzzles.categorie', compact('puzzle'));
     }
 }

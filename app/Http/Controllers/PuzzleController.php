@@ -24,7 +24,7 @@ class PuzzleController extends Controller
         return view('puzzles.create');
     }
 
-    /**
+    /**  
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
